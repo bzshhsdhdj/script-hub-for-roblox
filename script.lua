@@ -21,6 +21,8 @@ local X = Instance.new("TextButton")
 local UICorner_9 = Instance.new("UICorner")
 local TextButton = Instance.new("TextButton")
 local UICorner_10 = Instance.new("UICorner")
+local FunkyChart = Instance.new("TextButton")
+local UICorner_11 = Instance.new("UICorner")
 
 SearchGui.Name = "SearchGui"
 SearchGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -133,6 +135,25 @@ end)
 
 UICorner_6.Parent = FunkyFridayAutoplay
 
+FunkyChart.Name = "FunkyChart"
+FunkyChart.Parent = Items
+FunkyChart.AnchorPoint = Vector2.new(0.5, 0)
+FunkyChart.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
+FunkyChart.BorderColor3 = Color3.fromRGB(32, 32, 32)
+FunkyChart.BorderSizePixel = 2
+FunkyChart.Position = UDim2.new(0.50000006, 0, 0.144881204, 0)
+FunkyChart.Size = UDim2.new(1.00000012, 0, 0.0733372197, -5)
+FunkyChart.ZIndex = 2
+FunkyChart.Font = Enum.Font.GothamBold
+FunkyChart.Text = "FunkyChart"
+FunkyChart.TextColor3 = Color3.fromRGB(204, 204, 204)
+FunkyChart.TextScaled = true
+FunkyChart.TextSize = 14.000
+FunkyChart.TextWrapped = true
+FunkyChart.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/accountrev/funkychart/main/FunkyChartGUI.lua"))()
+
+UICorner_7.Parent = FunkyChart
 SearchBar.Name = "SearchBar"
 SearchBar.Parent = Frame
 SearchBar.AnchorPoint = Vector2.new(0.5, 0)
@@ -160,6 +181,7 @@ TextLabel.Font = Enum.Font.GothamBold
 TextLabel.Text = "cool hub for cool people"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 40.000
+TextLabel.BackgroundTransparency = 1.00
 
 UICorner_8.Parent = TextLabel
 
@@ -191,7 +213,7 @@ local function LHDGGLW_fake_script() -- Frame.LocalScript
 
 	local searchBar = script.Parent.SearchBar
 	local items = script.Parent.Items
-	
+
 	function UpdateResults()
 		local search = string.lower(searchBar.Text)
 		for i, v in	 pairs(items:GetChildren()) do
@@ -209,7 +231,7 @@ local function LHDGGLW_fake_script() -- Frame.LocalScript
 			end
 		end
 	end
-	
+
 	searchBar.Changed:Connect(UpdateResults)
 end
 coroutine.wrap(LHDGGLW_fake_script)()
@@ -219,7 +241,7 @@ local function AWAEI_fake_script() -- X.LocalScript
 	script.Parent.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Visible = false
 	end)
-	
+
 end
 coroutine.wrap(AWAEI_fake_script)()
 local function KAFLG_fake_script() -- TextButton.LocalScript 
@@ -227,12 +249,12 @@ local function KAFLG_fake_script() -- TextButton.LocalScript
 
 	local frame = script.Parent.Parent.Frame  -- change “Test” to the name of the frane
 	local open = false
-	
+
 	script.Parent.MouseButton1Click:Connect(function()
 		if frame.Visible == false then
 			frame.Visible = true
 		end
 	end)
-	
+
 end
 coroutine.wrap(KAFLG_fake_script)()
